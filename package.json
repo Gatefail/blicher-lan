@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build && next export -o docs",
+    "start": "next start",
+    "deploy": "next build && next export -o docs && git checkout -- docs/.nojekyll && git add docs && git commit -m \"chore: regen site\" && git push"
   },
   "dependencies": {
     "next": "9.5.1",
